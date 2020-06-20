@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+	<!-- 设置移动端的浏览设置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/me.css"/>
+</head>
+<body>
+
+	<!-- 导航 -->
+	<!-- 使用UI组件，使用inverted反转默认颜色，attached去圆角，segment表明这是一个片段，自定义上下内边距 -->
+	<nav class="ui inverted attached segment m-padding-tb-mini">
+		<div class="ui container">
+			<!-- 为了适应移动端，这里需要加一个属性stackable,表示可堆叠 -->
+			<div class="ui inverted secondary stackable menu">
+				<!-- 添加logo，导航菜单 -->
+				<h2 class="ui teal header item">Blog后台管理</h2>
+				<a href="index.html" class="active menu-item item m-mobile-hide"><i class="home icon"></i>博客</a>
+				<a href="types.html" class="menu-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+				<a href="tags.html" class="menu-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+				
+				<!-- 制作头像及用户名和下拉菜单 -->
+				<div class="right menu-item menu m-mobile-hide">
+					<div class="ui dropdown item">
+						<div class="text">
+							<img src="http://unsplash.it/100/100?image=1005" class="ui avatar image">
+							silence
+						</div>
+						<i class="dropdown icon"></i>
+						<!-- 头像上的下拉菜单 -->
+						<div class="menu">
+							<a href="#" class="item">注销</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 设置手机端响应时显示个菜单图标 -->
+		<a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+			<i class="sidebar icon"></i>
+		</a>
+	</nav>
+	<!-- 二级导航 -->
+	<div class="ui attached pointing menu">
+		<div class="ui container">
+			<div class="right menu">
+				<a href="#" class="item">发布</a>
+				<a href="#" class="active teal item">列表</a>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 中间内容 -->
+	<div class="m-container-small m-padding-tb-big">
+		<div class="ui container">
+			<form action="#" method="post" class="ui segment form">
+				<div class="inline fields">
+					<div class="field m-margin-tb-tiny">
+						<input type="text" name="title" placeholder="标题" />
+					</div>
+					<div class="field m-margin-tb-tiny">
+						<div class="ui selection dropdown">
+							<input type="hidden" name="type" />
+							<i class="dropdown icon"></i>
+							<div class="default text">分类</div>
+							<div class="menu">
+								<div class="item" data-value="1">错误日志</div>
+								<div class="item" data-value="2">开发者手册</div>
+							</div>
+						</div>
+					</div>
+					<div class="field m-margin-tb-tiny">
+						<div class="ui checkbox">
+							<input type="checkbox" name="recommend" id="recommend"/>
+							<label for="recommend">推荐</label>
+						</div>
+					</div>
+					<div class="field m-margin-tb-tiny">
+						<button class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
+					</div>
+				</div>
+			</form>
+			<table class="ui celled table">
+				<thead>
+					<tr>
+						<th></th>
+						<th>标题</th>
+						<th>类型</th>
+						<th>推荐</th>
+						<th>更新时间</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>刻意练习清单</td>
+						<td>认知升级</td>
+						<td>是</td>
+						<td>2020年6月19日16:43:04</td>
+						<td>
+							<a href="#" class="ui mini teal basic button">编辑</a>
+							<a href="#" class="ui mini red basic button">删除</a>
+						</td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr>
+						<th colspan="6">
+							<div class="ui mini pagination menu">
+								<a class="item">上一页</a>
+								<a class="item">下一页</a>								
+							</div>
+							<a href="blog-input.html" class="ui right floated mini teal basic button">新增</a>
+						</th>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
+	</div>
+
+	
+	<!-- 底部栏 -->
+	<footer class="ui inverted vertical segment m-padding-tb-massive">
+		<div class="ui center aligned container">
+			<div class="ui inverted divided stackable grid">
+				<div class="three wide column">
+					<h4 class="ui inverted header">扫码关注</h4>
+					<div class="ui inverted link list">
+						<div class="item">
+							<!-- 图片设置为圆角，并使用内联样式控制图片大小 -->
+							<img src="../static/images/wechatpay.jpg" class="ui rounded image" alt="" style="width:6.25rem;">
+						</div>								
+					</div>
+				</div>
+				<div class="three wide column">
+					<h4 class="ui inverted header">最新博客</h4>
+					<div class="ui inverted link list">
+						<a href="#" class="item">用户故事(User Story)</a>
+						<a href="#" class="item">用户故事(User Story)</a>
+						<a href="#" class="item">用户故事(User Story)</a>
+					</div>
+				</div>
+				<div class="three wide column">
+					<h4 class="ui inverted header">联系我</h4>
+					<div class="ui inverted link list">
+						<a href="#" class="item">Email:406685901@qq.com</a>
+						<a href="#" class="item">QQ:406685901</a>
+					</div>
+				</div>
+				<div class="seven wide column">
+					<h4 class="ui inverted header">Blog</h4>
+					<p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客，会分享关于编程、思考等等相关的任何内容，希望可以对来到此站的朋友有所帮助！</p>
+				</div>
+			</div>
+			<div class="ui inverted section divider"></div>
+			<p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright 2020 silence Designed by silence</p>		
+		</div>
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+	
+	<script>
+		// 手机端点击menu按钮时显示菜单
+		$('.menu.toggle').click(function(){
+			// 点击按钮时检测menu-item内是否有m-mobile-hide属性，有则删除，没有则添上
+			$('.menu-item').toggleClass('m-mobile-hide');
+		});
+		
+		// 用户头像上的下拉菜单
+		$('.ui.dropdown').dropdown({
+			on : 'hover'
+		});
+	</script>
+	
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+	<!-- 设置移动端的浏览设置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>归档</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="static/css/me.css"/>
+</head>
+<body>
+
+	<!-- 导航 -->
+	<!-- 使用UI组件，使用inverted反转默认颜色，attached去圆角，segment表明这是一个片段，自定义上下内边距 -->
+	<nav class="ui inverted attached segment m-padding-tb-mini m-shadow-small">
+		<div class="ui container">
+			<!-- 为了适应移动端，这里需要加一个属性stackable,表示可堆叠 -->
+			<div class="ui inverted secondary stackable menu">
+				<!-- 添加logo，导航菜单 -->
+				<h2 class="ui teal header item">Blog</h2>
+				<a href="index.html" class="menu-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+				<a href="types.html" class="menu-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+				<a href="tags.html" class="menu-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+				<a href="archives.html" class="active menu-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+				<a href="about.html" class="menu-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+				
+				<div class="right menu-item item m-mobile-hide">
+					<div class="ui icon input">
+						<input type="text" placeholder="Search..."/>
+						<i class="search link icon"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 设置手机端响应时显示个菜单图标 -->
+		<a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+			<i class="sidebar icon"></i>
+		</a>
+	</nav>
+
+	<!-- 中间内容 -->
+	<div class="m-container-small m-padding-tb-big">
+		<div class="ui container">
+			<!-- 头部 -->
+			<div class="ui top attached padded segment">
+				<div class="ui middle aligned two column grid">
+					<div class="column">
+						<h3 class="ui teal header">归档</h3>
+					</div>
+					<div class="right aligned column">
+						共 <h2 class="ui orange header m-inline-blok m-text-thin"> 114 </h2> 篇博客
+					</div>
+				</div>
+			</div>
+			
+			<!-- 按年份进行归档 -->
+			<h3 class="ui center aligned header">2017</h3>
+			<div class="ui fluid vertical menu">
+				<a href="#" target="_blank" class="item">
+					<span>
+						<i class="mini teal circle icon"></i>关于刻意练习的清单
+						<div class="ui teal basic left pointing label m-padding-mini">
+							9月3日
+						</div>
+					</span>
+					<div class="ui orange basic left pointing label m-padding-mini">
+						原创
+					</div>
+				</a>
+				
+				<a href="#" target="_blank" class="item">
+					<span>
+						<i class="mini teal circle icon"></i>关于刻意练习的清单
+						<div class="ui teal basic left pointing label m-padding-mini">
+							9月3日
+						</div>
+					</span>
+					<div class="ui orange basic left pointing label m-padding-mini">
+						原创
+					</div>
+				</a>
+			</div>
+			
+		</div>
+	</div>
+
+	
+	<!-- 底部栏 -->
+	<footer class="ui inverted vertical segment m-padding-tb-massive">
+		<div class="ui center aligned container">
+			<div class="ui inverted divided stackable grid">
+				<div class="three wide column">
+					<h4 class="ui inverted header">扫码关注</h4>
+					<div class="ui inverted link list">
+						<div class="item">
+							<!-- 图片设置为圆角，并使用内联样式控制图片大小 -->
+							<img src="./static/images/wechatpay.jpg" class="ui rounded image" alt="" style="width:6.25rem;">
+						</div>								
+					</div>
+				</div>
+				<div class="three wide column">
+					<h4 class="ui inverted header">最新博客</h4>
+					<div class="ui inverted link list">
+						<a href="#" class="item">用户故事(User Story)</a>
+						<a href="#" class="item">用户故事(User Story)</a>
+						<a href="#" class="item">用户故事(User Story)</a>
+					</div>
+				</div>
+				<div class="three wide column">
+					<h4 class="ui inverted header">联系我</h4>
+					<div class="ui inverted link list">
+						<a href="#" class="item">Email:406685901@qq.com</a>
+						<a href="#" class="item">QQ:406685901</a>
+					</div>
+				</div>
+				<div class="seven wide column">
+					<h4 class="ui inverted header">Blog</h4>
+					<p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客，会分享关于编程、思考等等相关的任何内容，希望可以对来到此站的朋友有所帮助！</p>
+				</div>
+			</div>
+			<div class="ui inverted section divider"></div>
+			<p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright 2020 silence Designed by silence</p>		
+		</div>
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+	
+	<script>
+		// 手机端点击menu按钮时显示菜单
+		$('.menu.toggle').click(function(){
+			// 点击按钮时检测menu-item内是否有m-mobile-hide属性，有则删除，没有则添上
+			$('.menu-item').toggleClass('m-mobile-hide');
+		});
+	</script>
+	
+</body>
+</html>

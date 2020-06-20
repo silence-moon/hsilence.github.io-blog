@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    <meta charset="UTF-8">
+	<!-- 设置移动端的浏览设置 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/me.css"/>
+	<!-- 引入Markdown样式 -->
+	<link rel="stylesheet" type="text/css" href="../static/lib/editormd/css/editormd.min.css"/>
+</head>
+<body>
+
+	<!-- 导航 -->
+	<!-- 使用UI组件，使用inverted反转默认颜色，attached去圆角，segment表明这是一个片段，自定义上下内边距 -->
+	<nav class="ui inverted attached segment m-padding-tb-mini">
+		<div class="ui container">
+			<!-- 为了适应移动端，这里需要加一个属性stackable,表示可堆叠 -->
+			<div class="ui inverted secondary stackable menu">
+				<!-- 添加logo，导航菜单 -->
+				<h2 class="ui teal header item">Blog后台管理</h2>
+				<a href="index.html" class="active menu-item item m-mobile-hide"><i class="home icon"></i>博客</a>
+				<a href="types.html" class="menu-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+				<a href="tags.html" class="menu-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+				
+				<!-- 制作头像及用户名和下拉菜单 -->
+				<div class="right menu-item menu m-mobile-hide">
+					<div class="ui dropdown item">
+						<div class="text">
+							<img src="http://unsplash.it/100/100?image=1005" class="ui avatar image">
+							silence
+						</div>
+						<i class="dropdown icon"></i>
+						<!-- 头像上的下拉菜单 -->
+						<div class="menu">
+							<a href="#" class="item">注销</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 设置手机端响应时显示个菜单图标 -->
+		<a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+			<i class="sidebar icon"></i>
+		</a>
+	</nav>
+	<!-- 二级导航 -->
+	<div class="ui attached pointing menu">
+		<div class="ui container">
+			<div class="right menu">
+				<a href="#" class="item">发布</a>
+				<a href="#" class="active teal item">列表</a>
+			</div>
+		</div>
+	</div>
+	
+	<!-- 中间内容 -->
+	<div class="m-container-small m-padding-tb-big">
+		<div class="ui container">
+			<form action="#" method="post" class="ui form">	
+				<div class="required field">
+					<div class="ui left labeled input">
+						<!-- compact属性可以使选择框宽度与内容一样宽 -->
+						<div class="ui selection compact teal basic dropdown label">
+							<input type="hidden" value="原创" />
+							<i class="dropdown icon"></i>
+							<div class="default text">原创</div>
+							<div class="menu">
+								<div class="item" data-value="原创">原创</div>
+								<div class="item" data-value="转载">转载</div>
+								<div class="item" data-value="翻译">翻译</div>
+							</div>
+						</div>
+						<input type="text" name="title" placeholder="标题" />
+					</div>	
+				</div>
+				
+				<div class="field">
+					<!-- 将该textarea替换成Markdown编辑器 -->
+					<div id="md-content" style="z-index: 1 !important;">
+						<textarea placeholder="博客内容" name="content" style="display: none;">[TOC]
+
+#### Disabled options
+
+- TeX (Based on KaTeX);
+- Emoji;
+- Task lists;
+- HTML tags decode;
+- Flowchart and Sequence Diagram;
+						</textarea>
+					</div>
+				</div>
+				
+				<div class="two fields">
+					<div class="field">
+						<div class="ui left labeled action input">
+							<label class="ui compact teal basic label">分类</label>
+							<div class="ui fluid selection dropdown">
+								<input type="hidden" name="type"/>
+								<i class="dropdown icon"></i>
+								<div class="default text">分类</div>
+								<div class="menu">
+									<div class="item" data-value="1">错误日志</div>
+									<div class="item" data-value="2">开发者手册</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="field">
+						<div class="ui left labeled action input">
+							<label class="ui compact teal basic label">标签</label>
+							<!-- fluid：充满； multiple：多选； search：搜索 -->
+							<div class="ui selection fluid multiple search dropdown">
+								<input type="hidden" name="tag"/>
+								<i class="dropdown icon"></i>
+								<div class="default text">标签</div>
+								<div class="menu">
+									<div class="item" data-value="1">Java</div>
+									<div class="item" data-value="2">JavaScript</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="field">
+					<div class="ui left labeled input">
+						<label class="ui teal basic label">首图</label>
+						<input type="text" name="indexPicture" placeholder="首图引用地址" />
+					</div>
+				</div>
+				
+				<div class="inline fields">
+					<div class="field">
+						<div class="ui checkbox">
+							<input type="checkbox" id="recommend" name="recommend" checked class="hidden" />
+							<label for="recommend">推荐</label>
+						</div>
+					</div>
+					<div class="field">
+						<div class="ui checkbox">
+							<input type="checkbox" id="shareInfo" name="shareInfo" class="hidden" />
+							<label for="shareInfo">转载声明</label>
+						</div>
+					</div>
+					<div class="field">
+						<div class="ui checkbox">
+							<input type="checkbox" id="appreciation" name="appreciation" class="hidden" />
+							<label for="appreciation">赞赏</label>
+						</div>
+					</div>
+					<div class="field">
+						<div class="ui checkbox">
+							<input type="checkbox" id="comment" name="comment" class="hidden" />
+							<label for="comment">评论</label>
+						</div>
+					</div>
+				</div>
+				
+				<!-- 错误提示 -->
+				<div class="ui error message">
+					
+				</div>
+				
+				<div class="ui right aligned container">
+					<button type="button" class="ui button" onclick="window.history.go(-1)">返回</button>
+					<button class="ui secondary button">保存</button>
+					<button class="ui teal button">发布</button>
+				</div>
+			</form>		
+		</div>
+	</div>
+
+	
+	<!-- 底部栏 -->
+	<footer class="ui inverted vertical segment m-padding-tb-massive">
+		<div class="ui center aligned container">
+			<div class="ui inverted divided stackable grid">
+				<div class="three wide column">
+					<h4 class="ui inverted header">扫码关注</h4>
+					<div class="ui inverted link list">
+						<div class="item">
+							<!-- 图片设置为圆角，并使用内联样式控制图片大小 -->
+							<img src="../static/images/wechatpay.jpg" class="ui rounded image" alt="" style="width:6.25rem;">
+						</div>								
+					</div>
+				</div>
+				<div class="three wide column">
+					<h4 class="ui inverted header">最新博客</h4>
+					<div class="ui inverted link list">
+						<a href="#" class="item">用户故事(User Story)</a>
+						<a href="#" class="item">用户故事(User Story)</a>
+						<a href="#" class="item">用户故事(User Story)</a>
+					</div>
+				</div>
+				<div class="three wide column">
+					<h4 class="ui inverted header">联系我</h4>
+					<div class="ui inverted link list">
+						<a href="#" class="item">Email:406685901@qq.com</a>
+						<a href="#" class="item">QQ:406685901</a>
+					</div>
+				</div>
+				<div class="seven wide column">
+					<h4 class="ui inverted header">Blog</h4>
+					<p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客，会分享关于编程、思考等等相关的任何内容，希望可以对来到此站的朋友有所帮助！</p>
+				</div>
+			</div>
+			<div class="ui inverted section divider"></div>
+			<p class="m-text-thin m-text-spaced m-opacity-tiny">Copyright 2020 silence Designed by silence</p>		
+		</div>
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+	
+	<!-- 引入Markdown的js -->
+	<script src="../static/lib/editormd/editormd.min.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script>
+		//初始化Markdown编辑器
+		var contentEditor;		
+		$(function() {
+		    contentEditor = editormd("md-content", {
+		        width   : "100%",
+		        height  : 640,
+		        syncScrolling : "single",
+		        path    : "../static/lib/editormd/lib/"
+		    });		    
+		});
+		
+		// 手机端点击menu按钮时显示菜单
+		$('.menu.toggle').click(function(){
+			// 点击按钮时检测menu-item内是否有m-mobile-hide属性，有则删除，没有则添上
+			$('.menu-item').toggleClass('m-mobile-hide');
+		});
+		
+		// 用户头像上的下拉菜单
+		$('.ui.dropdown').dropdown({
+			on : 'hover'
+		});
+		
+		//表单验证
+		$('.ui.form').form({
+			fields:{
+				title:{
+					identifier:'title',
+					rules:[{
+						type:'empty',
+						prompt:'标题：请输入博客标题'
+					}]
+				}
+			}
+		});
+	</script>
+	
+</body>
+</html>
